@@ -1,0 +1,17 @@
+class Solution(object):
+    def removeElement(self, nums, val):
+        """
+        :type nums: List[int]
+        :type val: int
+        :rtype: int
+        """
+        biaozhiwei = -1
+        for i in range(0,len(nums)):
+            if nums[i] != val:
+                biaozhiwei += 1
+                nums[biaozhiwei] = nums[i]
+        return biaozhiwei+1
+ 
+sl = Solution()
+print(sl.removeElement([0,0,1,1,1,2,2,3,3,4],3))
+   
