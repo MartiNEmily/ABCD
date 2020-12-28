@@ -1,0 +1,27 @@
+给你两个二进制字符串，返回它们的和（用二进制表示）。
+
+输入为 非空 字符串且只包含数字 1 和 0。
+
+
+class Solution(object):
+    def addBinary(self, a, b):
+        """
+        :type a: str
+        :type b: str
+        :rtype: str
+        """
+        l = max(len(a),len(b))
+        a = '0'*(l-len(a))+a
+        b = '0'*(l-len(b))+b
+        st = ''
+        c = 0
+        for i in range(l-1,-1,-1):
+            if int(a[i])+int(b[i])+c >=2:
+                st = str(int(a[i])+int(b[i])+c-2)+st
+                c = 1
+            else:
+                st = str(int(a[i])+int(b[i])+c)+st
+                c = 0
+        if c ==1:
+            st = '1'+st
+        return st
