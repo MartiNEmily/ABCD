@@ -1,0 +1,21 @@
+给定一个字符串 s，计算具有相同数量0和1的非空(连续)子字符串的数量，并且这些子字符串中的所有0和所有1都是组合在一起的。
+
+重复出现的子串要计算它们出现的次数。
+
+class Solution(object):
+    def countBinarySubstrings(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        l = [1]
+        count = 0 
+        for i in range(1,len(s)):
+            if s[i]==s[i-1]:
+                l[-1] += 1
+            elif s[i]!=s[i-1]:
+                l.append(1)
+        for j in range(1,len(l)):
+            num = min(l[j-1],l[j])
+            count += num
+        return count
