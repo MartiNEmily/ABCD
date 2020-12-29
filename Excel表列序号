@@ -1,0 +1,14 @@
+给定一个Excel表格中的列名称，返回其相应的列序号。
+
+class Solution(object):
+    def titleToNumber(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        n = 0
+        k = 0
+        for ch in s[::-1]:
+            n += (ord(ch)-64) * pow(26, k)
+            k += 1
+        return n
