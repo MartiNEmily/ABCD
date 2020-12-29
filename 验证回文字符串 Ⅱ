@@ -1,0 +1,16 @@
+给定一个非空字符串 s，最多删除一个字符。判断是否能成为回文字符串。
+class Solution(object):
+    def validPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        if s == s[::-1]:
+            return True
+        l = 0
+        r = len(s)-1
+        while l < r:
+            if s[l] != s[r]:
+                return (s[:l]+s[l+1:])[::-1]==(s[:l]+s[l+1:]) or (s[:r]+s[r+1:])[::-1]==(s[:r]+s[r+1:])
+            l += 1
+            r -= 1
