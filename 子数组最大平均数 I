@@ -1,0 +1,19 @@
+给定 n 个整数，找出平均数最大且长度为 k 的连续子数组，并输出该最大平均数。
+
+class Solution(object):
+    def findMaxAverage(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: float
+        """
+        s = -10000*30000
+        n = 0
+        if k == len(nums):
+            return sum(nums[:])/float(k)
+        for i in range(len(nums)-k+1):
+            n = sum(nums[i:i+k])
+            if n > s:
+                s = n
+        return s/float(k)
+ 
